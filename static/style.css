@@ -1,0 +1,68 @@
+/* Ensure Navbar Text Stays White */
+.navbar-nav .nav-link, 
+.navbar-brand {
+    color: white !important;
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Mobile Menu Icon */
+.navbar-toggler-icon {
+    filter: invert(1);
+}
+h4.text-success {
+    color: black !important;
+}
+
+
+/* Make "Available Products" text black */
+h2 {
+    color: black !important;
+    font-weight: bold;
+}
+
+/* Eco-Friendly Themed Background */
+/* Apply eco-friendly background */
+body {
+    background-image: url('images/eco-pattern.png');
+    background-size: cover;  /* Ensures the image covers the full screen */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents tiling */
+    background-attachment: fixed; /* Keeps the image fixed while scrolling */
+    font-family: 'Poppins', sans-serif; /* Optional: Modern font for a clean look */
+    color: #2E7D32; /* Eco-friendly dark green text */
+}
+
+/* Card Styling for a Natural Look */
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+    background-color: #ffffff;
+    transition: transform 0.2s ease-in-out;
+}
+.card:hover {
+    transform: scale(1.03);
+}
+
+/* Buttons with Green Aesthetic */
+.btn-success {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+}
+.btn-success:hover {
+    background-color: #45A049;
+    border-color: #45A049;
+}
+
+/* Headings with Earthy Tone */
+h5 {
+    color: #2E7D32;
+}
+
+/* Text Colors for Readability */
+p {
+    color: #4A4A4A;
+}

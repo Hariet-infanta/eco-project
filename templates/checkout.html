@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Checkout - Eco Exchange{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h2 class="text-success text-center">Checkout</h2>
+        
+        {% if cart and cart.items %}
+            <ul class="list-group mb-3">
+                {% for item in cart.items %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        {{ item.product.name }} - ₹{{ item.product.price }} (x{{ item.quantity }})
+                    </li>
+                {% endfor %}
+            </ul>
+            
+            <form method="post" action="{{ url_for('checkout') }}">
+                <button type="submit" class="btn btn-success btn-lg w-100">Confirm Purchase</button>
+            </form>
+        {% else %}
+            <p class="text-center">Your cart is empty.</p>
+        {% endif %}
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} mt-3 text-center">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+{% endblock %}

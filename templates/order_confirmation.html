@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Order Confirmation{% endblock %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <div class="card shadow p-4">
+        <h2 class="text-success">✅ Your Order Has Been Placed!</h2>
+        <p class="lead">Thank you for purchasing <strong>{{ product.name }}</strong>.</p>
+        <p>Price: <strong>₹{{ product.price }}</strong></p>
+        <div class="mt-4">
+            <a href="{{ url_for('home') }}" class="btn btn-primary">Back to Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

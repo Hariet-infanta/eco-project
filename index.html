@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Eco Exchange{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center text-success">Welcome to Eco Exchange</h2>
+
+    <div class="mt-3">
+        <h4>Available Products</h4>
+        {% if products %}
+            <ul class="list-group">
+                {% for product in products %}
+                    <li class="list-group-item">
+                        <strong>{{ product.name }}</strong> - {{ product.description }} - ${{ product.price }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No products available. Be the first to sell something!</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

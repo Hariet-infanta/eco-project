@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}My Cart - Eco Exchange{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center text-success">My Cart</h2>
+    
+    {% if cart and cart.items %}
+        <table class="table table-bordered mt-3">
+            <thead class="table-success">
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart.items %}
+                <tr>
+                    <td>{{ item.product.name }}</td>
+                    <td>₹{{ item.product.price }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>₹{{ item.product.price * item.quantity }}</td>
+                    <td>
+                        <form action="{{ url_for('remove_from_cart', product_id=item.product.id) }}" method="post">
+                            <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h4 class="text-end">Total Price: <strong>₹{{ total_price }}</strong></h4>
+        <div class="text-end">
+            <a href="{{ url_for('checkout') }}" class="btn btn-primary">Proceed to Checkout</a>
+        </div>
+
+    {% else %}
+        <p class="text-center mt-3">Your cart is empty. <a href="{{ url_for('home') }}">Go Shopping</a></p>
+    {% endif %}  <!-- ✅ Add this line to close the if statement -->
+</div>
+{% endblock %}
